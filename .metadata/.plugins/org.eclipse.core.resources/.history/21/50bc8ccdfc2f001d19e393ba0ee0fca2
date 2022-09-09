@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2348c637-614d-4a5b-8b1d-1db7fd10e194" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="postFlight" doc:id="449c7d81-233b-4c63-9664-880f1600de2a" >
+		<http:listener doc:name="Listener" doc:id="c03b4c46-8f2b-48da-9f0c-36135951868a" config-ref="HTTP_Listener_config" path="/simple"/>
+		
+		<ee:transform doc:name="Transform Message" doc:id="62b6ede9-2f19-4c93-86ed-75a584a8edc2" >
+			<ee:message >
+				<ee:set-payload resource="dw-script.dwl" />
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="varA" ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		
+		
+		<logger level="INFO" doc:name="Logger" doc:id="0b4dffca-100b-40dc-abda-f4d7f833f155" />
+	</flow>
+	<flow name="postFlights" doc:id="3c42a987-4b13-4be3-b8f8-cafe2f161f4e" >
+		<http:listener doc:name="complex" doc:id="69b64f5a-ea2e-4d49-af40-5b527a4f0d9c" config-ref="HTTP_Listener_config" path="/simple" />
+		<ee:transform doc:name="Copy_of_Transform Message" doc:id="90a67533-ab67-4946-a6d9-e7344683a39e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+
+payload map (obj, ind) -> {
+	price: $.price,
+	dest: $.toAirportCode,
+	ind: $$
+}]]></ee:set-payload>
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="varA" ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Copy_of_Logger" doc:id="b6f31bf4-b553-4574-849b-5080755fc2cf" />
+	</flow>
+</mule>

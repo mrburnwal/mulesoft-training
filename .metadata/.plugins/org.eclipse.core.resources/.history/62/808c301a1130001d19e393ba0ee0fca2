@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="17732e12-1d36-4171-b380-e6a547e55c71" >
+		<file:connection workingDir="C:\Users\Administrator\Downloads\APDevFundamentals_studentFiles_28jul2022\resources" />
+	</file:config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="59d83dd4-186e-400a-8816-cb0bcb870cce" >
+		<db:my-sql-connection host="iltdb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
+	</db:config>
+	<flow name="accountsFlow" doc:id="aab6a96a-aba3-456b-bb44-778c99879778" >
+		<file:listener doc:name="On New or Updated File" doc:id="38bb0216-9a4e-4497-bbcb-d6bd1c7fc1f0" config-ref="File_Config" directory="input" moveToDirectory="output">
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+			<file:matcher filenamePattern="*.csv" />
+		</file:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="193f7ef4-fca5-47c5-9771-7dacb84ea6c0" message="#[payload]"/>
+	</flow>
+	<flow name="syncDVaccountsWithPostal" doc:id="cf427ff8-83b9-4466-bbb3-d8028370775f" >
+		<scheduler doc:name="Scheduler" doc:id="2feb4e43-d394-4f76-a8a7-aab6c000ba99" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+		</scheduler>
+		<os:retrieve doc:name="Retrieve" doc:id="89c1d376-92f2-4ff9-b16b-f835ec92eea1" key="lastAccountID" target="lastAccountID">
+			<os:default-value ><![CDATA[0]]></os:default-value>
+		</os:retrieve>
+		<db:select doc:name="Select" doc:id="7b46601e-f26b-4d4c-96bb-df5ace4ae192" config-ref="Database_Config">
+			<db:sql ><![CDATA[SELECT *
+FROM accounts 
+WHERE postal= :postal
+AND accountID > :lastAccountID]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{postal: '98765', lastAccountID: vars.lastAccountID}]]]></db:input-parameters>
+		</db:select>
+		<choice doc:name="Choice" doc:id="0c459f2e-840a-466d-8486-7dd050f6aef0" >
+			<when expression="#[not isEmpty(payload)]">
+				<os:store doc:name="Store" doc:id="e85221c5-0d04-4626-a3cb-02a0926b014b" key="lastAccountID">
+			<os:value><![CDATA[#[max(payload.*accountID)]]]></os:value>
+		</os:store>
+				<file:write doc:name="Write" doc:id="8db1cc64-ca0e-458d-b7ab-98714a345454" config-ref="File_Config" path="output/DBpostal.csv">
+			<file:content><![CDATA[#[output application/csv header=false --- payload]]]></file:content>
+		</file:write>
+				<logger level="INFO" doc:name="Logger" doc:id="9af95651-221e-4c08-ab38-c4faef3e8aee" message="#[output application/csv --- payload]" />
+			</when>
+		</choice>
+	</flow>
+	<flow name="syncDBaccountstoCSV" doc:id="45f1721c-f15e-472f-a109-74a15ea60cf4" initialState="stopped">
+		<db:listener doc:name="On Table Row" doc:id="514b76ad-9935-4bb8-92e9-b18553171401" config-ref="Database_Config" table="accounts" watermarkColumn="accountID" idColumn="accountID">
+			<scheduling-strategy >
+				<fixed-frequency frequency="10" timeUnit="SECONDS"/>
+			</scheduling-strategy>
+		</db:listener>
+		<ee:transform doc:name="Transform Message" doc:id="e5808c04-43d8-4369-a379-be735fd65b6f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/csv header=false
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<file:write doc:name="Write" doc:id="8c14ba0d-d78f-459c-a3d5-6b94d8669063" config-ref="File_Config" path="output/DBaccounts.csv" mode="APPEND"/>
+		<logger level="INFO" doc:name="Logger" doc:id="d322f248-59db-4c22-a88c-1f96a5701a38" message="#[payload]"/>
+	</flow>
+</mule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="17732e12-1d36-4171-b380-e6a547e55c71" >
+		<file:connection workingDir="C:\Users\Administrator\Downloads\APDevFundamentals_studentFiles_28jul2022\resources" />
+	</file:config>
+	<flow name="accountsFlow" doc:id="aab6a96a-aba3-456b-bb44-778c99879778" >
+		<file:listener doc:name="On New or Updated File" doc:id="38bb0216-9a4e-4497-bbcb-d6bd1c7fc1f0" />
+	</flow>
+</mule>

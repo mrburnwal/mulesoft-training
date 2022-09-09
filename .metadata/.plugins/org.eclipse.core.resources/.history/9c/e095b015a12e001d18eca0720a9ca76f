@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:american-flights-api="http://www.mulesoft.org/schema/mule/american-flights-api" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/american-flights-api http://www.mulesoft.org/schema/mule/american-flights-api/current/mule-american-flights-api.xsd">
+	<american-flights-api:config name="American_Flights_API_Config" doc:name="American Flights API Config" doc:id="d7f6f213-f87d-4878-b346-c8b8f23f9420" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="d94f0020-a0a9-4621-b0bd-ce3fae586c9d" basePath="${training.basepath}" >
+		<http:request-connection host="${training.host}" port="${training.port}" />
+	</http:request-config>
+	<flow name="getAmericanFlights" doc:id="33bedd64-e3a0-4dd6-9df8-ff6dcabf833e" >
+		<http:listener doc:name="Listener" doc:id="a45ac13a-8124-4e20-8fcd-e5d38e2d23be" config-ref="mua-flights-api-httpListenerConfig" path="/american"/>
+		<set-variable value="#[attributes.queryParams.code default 'SFO']" doc:name="Set Variable" doc:id="025de19a-b563-441a-97bd-b3c242d9448a" variableName="code"/>
+		<american-flights-api:get-flights doc:name="Get flights" doc:id="e7e8aace-7fba-4b52-ad60-e3a06b4e2ab8" client-id="${american.client_id}" client-secret="${american.client_secret}" config-ref="American_Flights_API_Config" destination="#[vars.code]"/>
+	</flow>
+	<flow name="getUnitedFlights" doc:id="b4e3d97b-5c1d-489a-92e2-6c75120f6bdc" >
+		<http:listener doc:name="Listener" doc:id="d7ee2a11-50ae-4b7b-ae83-da25ed701da7" config-ref="mua-flights-api-httpListenerConfig" path="/united" />
+		<set-variable value="#[attributes.queryParams.code default 'SFO']" doc:name="Copy_of_Set Variable" doc:id="de4ce779-96bc-416a-9aac-8d17e058546b" variableName="code" />
+		<http:request method="GET" doc:name="Request" doc:id="63dd67b6-a0fc-4489-bb6b-3785bc79bd21" config-ref="HTTP_Request_configuration"/>
+	</flow>
+	<flow name="Copy_of_getAmericanFlights1" doc:id="42154833-3340-4716-af47-1da0b9bdd7fc" >
+		<http:listener doc:name="Copy_of_Listener" doc:id="fa7a3abc-f0da-4619-b477-d20231d03f22" config-ref="mua-flights-api-httpListenerConfig" path="/american" />
+		<set-variable value="#[attributes.queryParams.code default 'SFO']" doc:name="Copy_of_Set Variable" doc:id="cec93223-9c8f-43bb-8237-b11c6410cee4" variableName="code" />
+		<american-flights-api:get-flights doc:name="Copy_of_Get flights" doc:id="116f454c-d9cb-4d13-83ee-ea18a12ef1a2" config-ref="American_Flights_API_Config" client-id="${american.client_id}" client-secret="${american.client_secret}" destination="#[vars.code]" />
+	</flow>
+</mule>

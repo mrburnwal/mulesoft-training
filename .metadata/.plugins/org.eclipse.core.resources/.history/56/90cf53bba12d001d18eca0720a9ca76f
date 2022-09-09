@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="44e8dd40-d752-490b-93a8-87947fec594d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="b296ef97-83c5-4a83-bda6-c59a0acd8b46" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="3d935b6e-fbe9-4b97-a152-e32e2072b090" >
+		<db:my-sql-connection host="iltdb.learn.mulesoft.com" port="3306" user="mule" password="mule" database="training" />
+	</db:config>
+	<flow name="training4-american-wsFlow" doc:id="982c1d86-fc0f-4a04-aaf2-1db8933a7a78" >
+		<http:listener doc:name="Listener" doc:id="0e39a25d-2af9-4595-9d91-63691dc16ac8" config-ref="HTTP_Listener_config" path="/flights"/>
+		<set-payload value="#['Hello World']" doc:name="Set Payload" doc:id="9ecbae7d-1f58-42bc-a0e7-960f6b1e2202" />
+		<db:select doc:name="Select" doc:id="5fe5c355-e140-4eb5-bbb5-44ad152f3dbd" config-ref="Database_Config">
+			<db:sql ><![CDATA[select * from american]]></db:sql>
+		</db:select>
+	</flow>
+</mule>

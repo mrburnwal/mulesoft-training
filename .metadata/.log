@@ -1,0 +1,394 @@
+!SESSION 2022-09-08 20:39:00.215 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.15
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -clean
+
+This is a continuation of log file C:\mule\workspaces\apdevfund\.metadata\.bak_1.log
+Created Time: 2022-09-09 02:57:27.161
+
+!ENTRY org.mule.tooling.core 4 0 2022-09-09 02:57:27.161
+!MESSAGE Error while resolving data sense
+!STACK 0
+ToolingException{message='Error while creating application from url: file:/C:/mule/workspaces/apdevfund/.tooling/accountse24d0c79-8e68-40b5-b865-5253188c18e4/
+org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountse24d0c79-8e68-40b5-b865-5253188c18e4\repository\org\mule\connectors\mule-file-connector\1.4.1\mule-file-connector-1.4.1-mule-plugin.jar
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountse24d0c79-8e68-40b5-b865-5253188c18e4\repository\org\mule\connectors\mule-file-connector\1.4.1\mule-file-connector-1.4.1-mule-plugin.jar
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1764)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831)
+	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857)
+	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72)
+	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155)
+	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73)
+	... 20 more
+'
+, rootCauseMessage='NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountse24d0c79-8e68-40b5-b865-5253188c18e4\repository\org\mule\connectors\mule-file-connector\1.4.1\mule-file-connector-1.4.1-mule-plugin.jar'
+, rootCauseType='java.nio.file.NoSuchFileException'
+, rootCauseStackTrace='[java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountse24d0c79-8e68-40b5-b865-5253188c18e4\repository\org\mule\connectors\mule-file-connector\1.4.1\mule-file-connector-1.4.1-mule-plugin.jar, 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38), 	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198), 	at java.base/java.nio.file.Files.readAttributes(Files.java:1764), 	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259), 	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831), 	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857), 	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177), 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350), 	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103), 	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72), 	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155), 	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73),  [wrapped] org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountse24d0c79-8e68-40b5-b865-5253188c18e4\repository\org\mule\connectors\mule-file-connector\1.4.1\mule-file-connector-1.4.1-mule-plugin.jar, 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571), 	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source), 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), 	at java.base/java.lang.reflect.Method.invoke(Method.java:566), 	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243), 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264), 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), 	at java.base/java.lang.Thread.run(Thread.java:829)]'}
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:256)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 02:57:34.920
+!MESSAGE  *** 7681 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.core 4 0 2022-09-09 03:03:59.340
+!MESSAGE Error while resolving data sense
+!STACK 0
+ToolingException{message='Error while creating application from url: file:/C:/mule/workspaces/apdevfund/.tooling/accountsae840c90-235d-4e90-9d68-b22a948a97b7/
+org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsae840c90-235d-4e90-9d68-b22a948a97b7\repository\org\mule\connectors\mule-db-connector\1.13.5\mule-db-connector-1.13.5-mule-plugin.jar
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsae840c90-235d-4e90-9d68-b22a948a97b7\repository\org\mule\connectors\mule-db-connector\1.13.5\mule-db-connector-1.13.5-mule-plugin.jar
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1764)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831)
+	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857)
+	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72)
+	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155)
+	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73)
+	... 20 more
+'
+, rootCauseMessage='NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsae840c90-235d-4e90-9d68-b22a948a97b7\repository\org\mule\connectors\mule-db-connector\1.13.5\mule-db-connector-1.13.5-mule-plugin.jar'
+, rootCauseType='java.nio.file.NoSuchFileException'
+, rootCauseStackTrace='[java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsae840c90-235d-4e90-9d68-b22a948a97b7\repository\org\mule\connectors\mule-db-connector\1.13.5\mule-db-connector-1.13.5-mule-plugin.jar, 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38), 	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198), 	at java.base/java.nio.file.Files.readAttributes(Files.java:1764), 	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259), 	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831), 	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857), 	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177), 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350), 	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103), 	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72), 	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155), 	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73),  [wrapped] org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsae840c90-235d-4e90-9d68-b22a948a97b7\repository\org\mule\connectors\mule-db-connector\1.13.5\mule-db-connector-1.13.5-mule-plugin.jar, 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571), 	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source), 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), 	at java.base/java.lang.reflect.Method.invoke(Method.java:566), 	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243), 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264), 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), 	at java.base/java.lang.Thread.run(Thread.java:829)]'}
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:256)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.mule.tooling.core 4 0 2022-09-09 03:04:18.183
+!MESSAGE Error while resolving data sense
+!STACK 0
+ToolingException{message='Error while creating application from url: file:/C:/mule/workspaces/apdevfund/.tooling/accountsb989139f-6824-4647-96cc-fd33fb6b982b/
+org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsb989139f-6824-4647-96cc-fd33fb6b982b\repository\org\mule\connectors\mule-http-connector\1.7.1\mule-http-connector-1.7.1-mule-plugin.jar
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94)
+	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46)
+	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45)
+	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28)
+	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsb989139f-6824-4647-96cc-fd33fb6b982b\repository\org\mule\connectors\mule-http-connector\1.7.1\mule-http-connector-1.7.1-mule-plugin.jar
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53)
+	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1764)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831)
+	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857)
+	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103)
+	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72)
+	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125)
+	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155)
+	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73)
+	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73)
+	... 20 more
+'
+, rootCauseMessage='NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsb989139f-6824-4647-96cc-fd33fb6b982b\repository\org\mule\connectors\mule-http-connector\1.7.1\mule-http-connector-1.7.1-mule-plugin.jar'
+, rootCauseType='java.nio.file.NoSuchFileException'
+, rootCauseStackTrace='[java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsb989139f-6824-4647-96cc-fd33fb6b982b\repository\org\mule\connectors\mule-http-connector\1.7.1\mule-http-connector-1.7.1-mule-plugin.jar, 	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103), 	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:53), 	at java.base/sun.nio.fs.WindowsFileAttributeViews$Basic.readAttributes(WindowsFileAttributeViews.java:38), 	at java.base/sun.nio.fs.WindowsFileSystemProvider.readAttributes(WindowsFileSystemProvider.java:198), 	at java.base/java.nio.file.Files.readAttributes(Files.java:1764), 	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1259), 	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:831), 	at java.base/java.util.zip.ZipFile$CleanableResource$FinalizableResource.<init>(ZipFile.java:857), 	at java.base/java.util.zip.ZipFile$CleanableResource.get(ZipFile.java:846), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:248), 	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:177), 	at java.base/java.util.jar.JarFile.<init>(JarFile.java:350), 	at java.base/sun.net.www.protocol.jar.URLJarFile.<init>(URLJarFile.java:103), 	at java.base/sun.net.www.protocol.jar.URLJarFile.getJarFile(URLJarFile.java:72), 	at java.base/sun.net.www.protocol.jar.JarFileFactory.get(JarFileFactory.java:109), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.connect(JarURLConnection.java:125), 	at java.base/sun.net.www.protocol.jar.JarURLConnection.getInputStream(JarURLConnection.java:155), 	at org.mule.runtime.core.internal.util.JarUtils.loadFileContentFrom(JarUtils.java:73), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:73),  [wrapped] org.mule.runtime.module.artifact.api.descriptor.ArtifactDescriptorCreateException: java.nio.file.NoSuchFileException: C:\mule\workspaces\apdevfund\.tooling\accountsb989139f-6824-4647-96cc-fd33fb6b982b\repository\org\mule\connectors\mule-http-connector\1.7.1\mule-http-connector-1.7.1-mule-plugin.jar, 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorFactory.create(ArtifactPluginDescriptorFactory.java:83), 	at org.mule.runtime.module.deployment.impl.internal.plugin.ArtifactPluginDescriptorLoader.load(ArtifactPluginDescriptorLoader.java:70), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.createArtifactPluginDescriptors(AbstractDeployableDescriptorFactory.java:94), 	at org.mule.runtime.module.deployment.impl.internal.artifact.AbstractDeployableDescriptorFactory.doDescriptorConfig(AbstractDeployableDescriptorFactory.java:63), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:46), 	at org.mule.runtime.module.deployment.impl.internal.application.ApplicationDescriptorFactory.doDescriptorConfig(ApplicationDescriptorFactory.java:32), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.loadFromJsonDescriptor(AbstractArtifactDescriptorFactory.java:128), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.createArtifact(AbstractArtifactDescriptorFactory.java:84), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:45), 	at org.mule.runtime.module.deployment.impl.internal.application.ToolingApplicationDescriptorFactory.createArtifact(ToolingApplicationDescriptorFactory.java:28), 	at org.mule.runtime.module.artifact.api.descriptor.AbstractArtifactDescriptorFactory.create(AbstractArtifactDescriptorFactory.java:79), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:252), 	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571), 	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source), 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), 	at java.base/java.lang.reflect.Method.invoke(Method.java:566), 	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243), 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264), 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), 	at java.base/java.lang.Thread.run(Thread.java:829)]'}
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.newToolingArtifact(DefaultToolingRuntimeClient.java:256)
+	at org.mule.tooling.client.internal.DefaultToolingRuntimeClient.invokeMethod(DefaultToolingRuntimeClient.java:571)
+	at jdk.internal.reflect.GeneratedMethodAccessor1349.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.mule.tooling.client.bootstrap.internal.reflection.Dispatcher$ToolingCallable.call(Dispatcher.java:243)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:18:55.482
+!MESSAGE  *** 3836 EmbeddedMavenRunner [configuration=DefaultMavenRunnerConfiguration [externalInstallation=false, mavenInstallationHome=null, mavenOpts=]]
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:26:25.573
+!MESSAGE  *** 10734 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.maven.ui 4 0 2022-09-09 03:26:25.573
+!MESSAGE There was an error running build on project accounts
+
+!ENTRY org.mule.tooling.core 4 0 2022-09-09 03:28:03.122
+!MESSAGE There was a problem while sending events to Amplitude
+!STACK 0
+com.mulesoft.telemetry.SendBundleException: HTTP POST failed
+	at com.mulesoft.telemetry.TelemetryHttpClient.send(TelemetryHttpClient.java:109)
+	at com.mulesoft.telemetry.DefaultTelemetryService.send(DefaultTelemetryService.java:234)
+	at com.mulesoft.telemetry.DefaultTelemetryService.sendEvents(DefaultTelemetryService.java:226)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.apache.http.NoHttpResponseException: studio-metrics-report.cloudhub.io:443 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at com.mulesoft.telemetry.TelemetryHttpClient.send(TelemetryHttpClient.java:107)
+	... 8 more
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:28:24.113
+!MESSAGE  *** 10478 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.maven.ui 4 0 2022-09-09 03:28:24.113
+!MESSAGE There was an error running build on project accounts
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:29:14.209
+!MESSAGE  *** 10266 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.maven.ui 4 0 2022-09-09 03:29:14.209
+!MESSAGE There was an error running build on project accounts
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:29:30.122
+!MESSAGE  *** 11404 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.maven.ui 4 0 2022-09-09 03:29:30.122
+!MESSAGE There was an error running build on project accounts
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:31:08.105
+!MESSAGE  *** 11603 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.eclipse.ui 4 0 2022-09-09 03:31:11.293
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.util.ConcurrentModificationException
+	at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1043)
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:997)
+	at org.mule.tooling.ui.dfl.contribution.customeditor.DataWeaveExpressionEditor$CustomErrorManagerListener.lambda$0(DataWeaveExpressionEditor.java:385)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4035)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3635)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:32:21.914
+!MESSAGE  *** 11187 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.utils 4 0 2022-09-09 03:33:10.387
+!MESSAGE Unexpected error.
+!STACK 0
+java.lang.NumberFormatException: For input string: "aggregator"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.mule.tooling.model.messageflow.path.MulePathNode.getIndex(MulePathNode.java:28)
+	at org.mule.tooling.ui.contribution.debugger.service.MuleBreakpointService.shouldUpdateRouteLevel(MuleBreakpointService.java:281)
+	at org.mule.tooling.ui.contribution.debugger.service.MuleBreakpointService.updateLevel(MuleBreakpointService.java:686)
+	at org.mule.tooling.ui.contribution.debugger.service.MuleBreakpointService.moveBreakpointsOnCreation(MuleBreakpointService.java:248)
+	at org.mule.tooling.ui.contribution.debugger.service.MuleBreakpointService$4.onCreatedNewElementOnCanvas(MuleBreakpointService.java:127)
+	at org.mule.tooling.messageflow.events.CreatedElementOnCanvasEvent.dispatch(CreatedElementOnCanvasEvent.java:25)
+	at org.mule.tooling.messageflow.events.CreatedElementOnCanvasEvent.dispatch(CreatedElementOnCanvasEvent.java:1)
+	at org.mule.tooling.utils.eventbus.EventBus$1.call(EventBus.java:206)
+	at org.mule.tooling.utils.eventbus.EventBus$1.call(EventBus.java:1)
+	at org.mule.tooling.utils.SilentRunner.run(SilentRunner.java:25)
+	at org.mule.tooling.utils.eventbus.EventBus.doFireEvent(EventBus.java:194)
+	at org.mule.tooling.utils.eventbus.EventBus.fireEvent(EventBus.java:175)
+	at org.mule.tooling.messageflow.util.MessageFlowUtils.fireCreatedEvent(MessageFlowUtils.java:544)
+	at org.mule.tooling.messageflow.command.NodeCreateCommand.execute(NodeCreateCommand.java:83)
+	at org.mule.tooling.messageflow.command.MessageFlowNodeCreateCommand.execute(MessageFlowNodeCreateCommand.java:78)
+	at org.eclipse.gef.commands.CommandStack.execute(CommandStack.java:228)
+	at org.eclipse.gef.tools.AbstractTool.executeCommand(AbstractTool.java:425)
+	at org.eclipse.gef.tools.AbstractTool.executeCurrentCommand(AbstractTool.java:438)
+	at org.eclipse.gef.tools.CreationTool.performCreation(CreationTool.java:269)
+	at org.eclipse.gef.tools.CreationTool.handleButtonUp(CreationTool.java:189)
+	at org.eclipse.gef.tools.AbstractTool.mouseUp(AbstractTool.java:1200)
+	at org.mule.tooling.messageflow.editor.MessageFlowEditor$CustomDefaultEditDomain.mouseUp(MessageFlowEditor.java:1320)
+	at org.eclipse.gef.ui.parts.DomainEventDispatcher.dispatchMouseReleased(DomainEventDispatcher.java:380)
+	at org.eclipse.draw2d.LightweightSystem$EventHandler.mouseUp(LightweightSystem.java:548)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:224)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4243)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1063)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4060)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3632)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+
+!ENTRY org.mule.tooling.maven 1 0 2022-09-09 03:34:12.209
+!MESSAGE  *** 11236 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.6, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.mule.tooling.core 4 0 2022-09-09 03:38:05.007
+!MESSAGE There was a problem while sending events to Amplitude
+!STACK 0
+com.mulesoft.telemetry.SendBundleException: HTTP POST failed
+	at com.mulesoft.telemetry.TelemetryHttpClient.send(TelemetryHttpClient.java:109)
+	at com.mulesoft.telemetry.DefaultTelemetryService.send(DefaultTelemetryService.java:234)
+	at com.mulesoft.telemetry.DefaultTelemetryService.sendEvents(DefaultTelemetryService.java:226)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.apache.http.NoHttpResponseException: studio-metrics-report.cloudhub.io:443 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at com.mulesoft.telemetry.TelemetryHttpClient.send(TelemetryHttpClient.java:107)
+	... 8 more
